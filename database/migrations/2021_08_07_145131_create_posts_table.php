@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('content')->nullable();
             $table->string('slug')->unique();
             $table->string('category')->nullable();
-            $table->string('isPublished')->default('0');
+            $table->string('is_published')->default('0');
             $table->timestamps();
         });
     }
