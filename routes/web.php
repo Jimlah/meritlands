@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,9 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.cr
 Route::get('/login', [AuthController::class, 'loginView'])->name('login.view');
 Route::post('/login', [AuthController::class, 'login'])->name('login.check');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('/posts', PostController::class);
+
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
