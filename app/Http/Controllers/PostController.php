@@ -62,9 +62,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('dashboard.posts.show', compact('post'));
     }
 
     /**
@@ -73,9 +73,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($post)
     {
-        //
+        return view('dashboard.posts.edit', compact('post'));
     }
 
     /**
@@ -85,9 +85,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->category = $request->category;
+        $post->slug = Str::slug($request->title);
+
+        if ($request->has('publish')) {
+            $post->is_published = true;
+            $post->published_at = now();
+        }
+
+        $post->save();
+
+        return redirect()->route('posts.index')->with('success', 'Post has been updated');
     }
 
     /**
@@ -96,8 +108,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('success', 'Post has been deleted');
     }
 }
