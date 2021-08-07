@@ -53,7 +53,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('dashboard.posts.index');
+        return redirect()->route('posts.index')->with('success', 'Post has been created');
     }
 
     /**
