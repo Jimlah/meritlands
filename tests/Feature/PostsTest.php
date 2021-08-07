@@ -65,4 +65,61 @@ class PostsTest extends TestCase
         $response->assertStatus(302);
         $response->assertSessionHas('errors');
     }
+
+    public function test_user_can_view_edit_post()
+    {
+        Artisan::call('migrate');
+        User::factory()->create();
+        $post = Post::factory()->create();
+
+        $response = $this->actingAs(User::find(1))->get('/posts/' . $post->id . '/edit');
+        $response->assertStatus(200);
+    }
+
+    public function test_user_can_update_post()
+    {
+        Artisan::call('migrate');
+        User::factory()->create();
+        $post = Post::factory()->create();
+
+        $faker = Factory::create();
+
+        $response = $this->actingAs(User::find(1))->put('/posts/' . $post->id, [
+            'title' => $faker->text(10),
+            'content' => $faker->paragraph(4),
+            'category' => $faker->randomElement(['News', 'Events', 'Articles', 'Poetry']),
+        ]);
+
+        $response
+            ->assertStatus(302)
+            ->assertRedirect('/posts')
+            ->assertSessionHas('success');
+    }
+
+
+    public function test_user_can_not_update_post_without_title()
+    {
+        Artisan::call('migrate');
+        User::factory()->create();
+        $post = Post::factory()->create();
+
+        $faker = Factory::create();
+        $response = $this->actingAs(User::find(1))->put('/posts/' . $post->id, [
+            'content' => $faker->paragraph(4),
+            'category' => $faker->randomElement(['News', 'Events', 'Articles', 'Poetry']),
+        ]);
+        $response->assertStatus(302);
+        $response->assertSessionHas('errors');
+    }
+
+    public function test_user_can_delete_post()
+    {
+        Artisan::call('migrate');
+        User::factory()->create();
+        $post = Post::factory()->create();
+
+        $response = $this->actingAs(User::find(1))->delete('/posts/' . $post->id);
+        $response->assertStatus(302);
+        $response->assertRedirect('/posts');
+    }
 }
