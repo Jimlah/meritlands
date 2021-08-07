@@ -18,5 +18,6 @@ class Authentication extends TestCase
         $response = $this->get('/register');
 
         $response->assertStatus(200);
+        $response->assertViewIs('auth.register');
     }
 }
