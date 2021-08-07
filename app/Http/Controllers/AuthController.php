@@ -25,4 +25,9 @@ class AuthController extends Controller
     {
         return response()->view('auth.register');
     }
+
+    public function loginView()
+    {
+        return response()->view('auth.login');
+    }
 }
