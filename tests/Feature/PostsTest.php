@@ -27,4 +27,11 @@ class PostsTest extends TestCase
         $response = $this->actingAs($user)->get('/posts');
         $response->assertStatus(200);
     }
+
+    public function test_guest_can_not_login_and_view_all_post()
+    {
+        Post::factory(5)->create();
+        $response = $this->get('/posts');
+        $response->assertStatus(500);
+    }
 }
