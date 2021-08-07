@@ -73,6 +73,20 @@ class Authentication extends TestCase
         $response->assertRedirect(route('home'));
     }
 
+
+    public function test_user_can_logout()
+    {
+        Artisan::call('migrate');
+
+        $user = User::all()->first();
+
+        $response = $this->actingAs($user)
+            ->get('/logout');
+
+
+        $response->assertRedirect(route('login.view'));
+    }
+
     /**
      * @dataProvider registerDataProvider
      *
