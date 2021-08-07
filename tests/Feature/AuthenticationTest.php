@@ -20,4 +20,12 @@ class Authentication extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('auth.register');
     }
+
+    public function test_login_view()
+    {
+        $response = $this->get('/login');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('auth.login');
+    }
 }
