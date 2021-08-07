@@ -4,11 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Faker\Factory;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Artisan;
-use phpDocumentor\Reflection\Types\Parent_;
 use Tests\TestCase;
 
 class Authentication extends TestCase
