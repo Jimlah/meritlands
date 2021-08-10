@@ -44,7 +44,7 @@
                 alt="" />
         </div>
     </header>
-    <section class="px-5 py-10 grid-cols-1 gap-5 grid md:px-10 md:py-20 md:justify-items-center">
+    <section class="px-5 py-16 grid-cols-1 gap-5 grid md:px-16 md:py-20 md:justify-items-center">
         <div class="flex flex-col justify-center items-left space-y-4 md:items-center">
             <h2 class="tracking-widest text-sm uppercase text-gray-400">My Newsletter</h2>
             <p
@@ -111,9 +111,20 @@
             </div>
         </div>
     </section>
+    <section class="px-5 md:px-10 flex flex-col items-center justify-center py-16 md:py-20 space-y-5">
+        <div class="flex flex-col items-center">
+            <h2 class="text-2xl text-gray-400 tracking-wide">Get the latest</h2>
+            <a href="" class="text-sm text-gray-500">View All</a>
+        </div>
+        <div class="grid-cols-1 md:grid-cols-3 grid gap-20">
+            <x-blog-panel></x-blog-panel>
+            <x-blog-panel></x-blog-panel>
+            <x-blog-panel></x-blog-panel>
+        </div>
+    </section>
     <footer>
         <div
-            class="bg-gray-900 px-5 md:px-10 flex flex-col items-left md:items-center space-y-2 md:space-y-0 justify-between md:flex-row text-gray-400 py-8 font-bold">
+            class="bg-gray-900 px-5 md:px-10 flex flex-col items-left md:items-center space-y-2 md:space-y-0 justify-between md:flex-row text-gray-400 py-8 font-bold dark:border-t">
             <span> &copy2021 </span>
             <div
                 class="flex flex-col md:flex-row md:items-center space-y-1 md:space-y-0 md:justify-center md:space-x-4">
