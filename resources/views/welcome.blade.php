@@ -68,7 +68,7 @@
         </div>
     </section>
     <section class="md:px-10 md:py-20 flex items-center justify-center">
-        <div class="bg-gray-300  bg-opacity-75 grid grid-cols-1 md:grid-cols-2 px-5 py-10 rounded-lg w-full gap-5">
+        <div class="bg-gray-300  bg-opacity-75 grid grid-cols-1 md:grid-cols-2 px-5 py-10 rounded-lg w-full gap-5 max-w-3xl w-full place-item-center">
             <div class="flex flex-col items-start space-y-4">
                 <span>
                     <svg class="w-10 h-10 text-gray-100" fill="#000" stroke="currentColor" viewBox="0 0 24 24"
@@ -87,8 +87,8 @@
                     veniam quam aliquam.
                 </p>
             </div>
-            <div>
-                <form action="" method="POST" class="flex flex-col space-y-5 items-start">
+            <div class="flex items-center w-full justify-center">
+                <form action="" method="POST" class="flex flex-col space-y-5 items-start w-full">
                     <input type="text" name="name" placeholder="firstname"
                         class="w-full rounded-full px-5 py-3 uppercase tracking-widest" />
                     <input type="email" name="email" placeholder="Email Address"
