@@ -28,7 +28,8 @@
             <div class="text-left flex flex-col items-start space-y-5">
                 <h1 class="font-bold capitalize text-2xl leading-7 tracking-wide">dolor repellat sit temporibus odio ad
                     necessitatibus aperiam accusantium quisquam optio</h1>
-                <p class="text-xl text-gray-500 text-opacity-50 dark:text-opacity-75">Lorem ipsum dolor sit amet consectetur adipisicing
+                <p class="text-xl text-gray-500 text-opacity-50 dark:text-opacity-75">Lorem ipsum dolor sit amet
+                    consectetur adipisicing
                     elit. Nihil, reiciendis quibusdam eos possimus perferendis aspernatur tempore nostrum laudantium
                     obcaecati?</p>
                 <button
@@ -43,11 +44,12 @@
                 alt="" />
         </div>
     </header>
-
     <section class="px-5 py-10 grid-cols-1 gap-5 grid md:px-10 md:py-20 md:justify-items-center">
         <div class="flex flex-col justify-center items-left space-y-4 md:items-center">
             <h2 class="tracking-widest text-sm uppercase text-gray-400">My Newsletter</h2>
-            <p class="text-2xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">Lorem ipsum
+            <p
+                class="text-2xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
+                Lorem ipsum
                 dolor sit, amet consectetur adipisicing elit. Unde hic consequuntur, sapiente molestiae perspiciatiss
             </p>
         </div>
@@ -68,7 +70,8 @@
         </div>
     </section>
     <section class="md:px-10 md:py-20 flex items-center justify-center">
-        <div class="bg-gray-300  bg-opacity-75 grid grid-cols-1 md:grid-cols-2 px-5 py-10 rounded-lg w-full gap-5 max-w-3xl w-full place-item-center">
+        <div
+            class="bg-gray-300  bg-opacity-75 grid grid-cols-1 md:grid-cols-2 px-5 py-10 rounded-lg gap-5 max-w-3xl w-full place-item-center">
             <div class="flex flex-col items-start space-y-4">
                 <span>
                     <svg class="w-10 h-10 text-gray-100" fill="#000" stroke="currentColor" viewBox="0 0 24 24"
@@ -90,9 +93,9 @@
             <div class="flex items-center w-full justify-center">
                 <form action="" method="POST" class="flex flex-col space-y-5 items-start w-full">
                     <input type="text" name="name" placeholder="firstname"
-                        class="w-full rounded-full px-5 py-3 uppercase tracking-widest" />
+                        class="w-full rounded-full px-5 py-3 uppercase tracking-widest focus:outline-none" />
                     <input type="email" name="email" placeholder="Email Address"
-                        class="w-full rounded-full px-5 py-3 uppercase tracking-widest" />
+                        class="w-full rounded-full px-5 py-3 uppercase tracking-widest focus:outline-none" />
                     <button type="submit"
                         class="bg-gray-900 hover:bg-opacity-70 text-gray-100 flex space-x-2 px-5 py-3 rounded-full">
                         <span class="w-full rounded-full uppercase tracking-widest">Join Now</span>
