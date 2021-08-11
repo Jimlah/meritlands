@@ -48,7 +48,7 @@
         <div class="flex flex-col justify-center items-left space-y-4 md:items-center">
             <h2 class="tracking-widest text-sm uppercase text-gray-400">My Newsletter</h2>
             <p
-                class="text-2xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
+                class="text-3xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
                 Lorem ipsum
                 dolor sit, amet consectetur adipisicing elit. Unde hic consequuntur, sapiente molestiae perspiciatiss
             </p>
@@ -58,7 +58,7 @@
             <div class="h-36 w-36 border rounded-full bg-cover bg-center bg-no-repeat"
                 style="background-image: url('https://images.unsplash.com/photo-1578489758854-f134a358f08b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80')">
             </div>
-            <article class="text-gray-700 leading-5 text-base tracking-wider max-w-md">
+            <article class="text-gray-700 leading-5 text-lg tracking-wider max-w-md">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, vitae! Quis ullam quas odit vel
                     facilis dolor quam ex ducimus expedita, quae sunt obcaecati voluptatibus, incidunt atque voluptates
                     corporis labore!</p>
@@ -114,12 +114,36 @@
     <section class="px-5 md:px-10 flex flex-col items-center justify-center py-16 md:py-20 space-y-5">
         <div class="flex flex-col items-center">
             <h2 class="text-2xl text-gray-400 tracking-wide">Get the latest</h2>
-            <a href="" class="text-sm text-gray-500">View All</a>
+            <a href="" class="text-sm text-gray-500 hover:opacity-50">View All</a>
         </div>
         <div class="grid-cols-1 md:grid-cols-3 grid gap-20">
             <x-blog-panel></x-blog-panel>
             <x-blog-panel></x-blog-panel>
             <x-blog-panel></x-blog-panel>
+        </div>
+    </section>
+    <section class="px-5 md:px-10 grid grid-col-1 md:grid-cols-3 gap-y-5 py-16 md:py-20 text-gray-900 bg-gray-300 ">
+        <div class="">
+            meritland
+        </div>
+        <div class="flex flex-col space-y-2 justify-start items-start">
+            <h3 class="text-2xl uppercase font-bold text-left">Popular topics</h3>
+            <div class="grid grid-cols-2 gap-x-5 gap-y-0 font-bold text-base text-gray-900">
+                <a href="" class="hover:text-opacity-50">News</a>
+                <a href="" class="hover:text-opacity-50">News</a>
+                <a href="" class="hover:text-opacity-50">News</a>
+                <a href="" class="hover:text-opacity-50">News</a>
+                <a href="" class="hover:text-opacity-50">News</a>
+            </div>
+        </div>
+        <div class="flex flex-col space-y-2 justify-start items-start">
+            <h3 class="text-2xl uppercase font-bold text-left">Join My Newsletter</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus dolore quia eos consequatur
+                beatae maiores excepturi. Officiis eligendi praesentium
+            </p>
+            <a href="" class="bg-gray-900 hover:bg-opacity-70 text-gray-100 flex space-x-2 px-5 py-3 rounded-full">Sign
+                Up</a>
         </div>
     </section>
     <footer>
