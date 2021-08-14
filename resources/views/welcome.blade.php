@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ env('APP_NAME') }}</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-    </style>
-</head>
-
-<body class="antialiased dark:bg-gray-900">
-    <x-navbar></x-navbar>
+@section('content')
     <header class="grid grid-cols-1 gap-5 md:grid-cols-2 text-gray-700 dark:text-gray-200">
         <div class="px-5 pt-10 flex items-center justify-start md:px-10">
             <div class="text-left flex flex-col items-start space-y-5">
@@ -47,14 +25,12 @@
     <section class="px-5 py-16 grid-cols-1 gap-5 grid md:px-16 md:py-20 md:justify-items-center">
         <div class="flex flex-col justify-center items-left space-y-4 md:items-center">
             <h2 class="tracking-widest text-sm uppercase text-gray-400">My Newsletter</h2>
-            <p
-                class="text-3xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
+            <p class="text-3xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
                 Lorem ipsum
                 dolor sit, amet consectetur adipisicing elit. Unde hic consequuntur, sapiente molestiae perspiciatiss
             </p>
         </div>
-        <div
-            class="flex flex-col justify-center items-left space-y-4 md:flex-row md:w-1/2 md:space-x-3 md:items-center">
+        <div class="flex flex-col justify-center items-left space-y-4 md:flex-row md:w-1/2 md:space-x-3 md:items-center">
             <div class="h-36 w-36 border rounded-full bg-cover bg-center bg-no-repeat"
                 style="background-image: url('https://images.unsplash.com/photo-1578489758854-f134a358f08b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80')">
             </div>
@@ -122,43 +98,4 @@
             <x-blog-panel></x-blog-panel>
         </div>
     </section>
-    <section class="px-5 md:px-10 grid grid-col-1 md:grid-cols-3 gap-y-5 py-16 md:py-20 text-gray-900 bg-gray-300 ">
-        <div class="">
-            meritland
-        </div>
-        <div class="flex flex-col space-y-2 justify-start items-start">
-            <h3 class="text-2xl uppercase font-bold text-left">Popular topics</h3>
-            <div class="grid grid-cols-2 gap-x-5 gap-y-0 font-bold text-base text-gray-900">
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-            </div>
-        </div>
-        <div class="flex flex-col space-y-2 justify-start items-start">
-            <h3 class="text-2xl uppercase font-bold text-left">Join My Newsletter</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus dolore quia eos consequatur
-                beatae maiores excepturi. Officiis eligendi praesentium
-            </p>
-            <a href="" class="bg-gray-900 hover:bg-opacity-70 text-gray-100 flex space-x-2 px-5 py-3 rounded-full">Sign
-                Up</a>
-        </div>
-    </section>
-    <footer>
-        <div
-            class="bg-gray-900 px-5 md:px-10 flex flex-col items-left md:items-center space-y-2 md:space-y-0 justify-between md:flex-row text-gray-400 py-8 font-bold dark:border-t">
-            <span> &copy2021 </span>
-            <div
-                class="flex flex-col md:flex-row md:items-center space-y-1 md:space-y-0 md:justify-center md:space-x-4">
-                <a href="">About</a>
-                <a href="">Blog</a>
-                <a href="">Videos</a>
-            </div>
-            <a href="">Privacy Policy</a>
-        </div>
-    </footer>
-</body>
-
-</html>
+@endsection
