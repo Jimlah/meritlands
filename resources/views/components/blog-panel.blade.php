@@ -1,6 +1,6 @@
 <div class="flex flex-col space-y-5">
     <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
-    <div class="w-full h-96 bg-cover bg-center bg-no-repeat rounded-lg"
+    <div class="w-full h-72 bg-cover bg-center bg-no-repeat rounded-lg"
         style="background-image: url('https://dyl80ryjxr1ke.cloudfront.net/external_assets/hero_examples/hair_beach_v391182663/original.jpeg')">
     </div>
     <div class="w-full flex flex-col items-start space-y-3 h-48 overflow-y-hidden text-gray-900">

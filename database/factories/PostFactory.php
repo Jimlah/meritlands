@@ -31,8 +31,10 @@ class PostFactory extends Factory
         $content = $faker->paragraph(3);
         $is_published = $faker->boolean();
         $category = $faker->randomElement(['News', 'Events', 'Articles', 'Others']);
+        $image = $faker->imageUrl();
 
         return [
+            'image' => $image,
             'user_id' => $user_id,
             'title' => $title,
             'content' => $content,
