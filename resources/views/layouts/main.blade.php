@@ -55,7 +55,7 @@
             <div
                 class="flex flex-col md:flex-row md:items-center space-y-1 md:space-y-0 md:justify-center md:space-x-4">
                 <a href="">About</a>
-                <a href="">Blog</a>
+                <a href= {{ route('blog')}} >Blog</a>
                 <a href="">Videos</a>
             </div>
             <a href="">Privacy Policy</a>
