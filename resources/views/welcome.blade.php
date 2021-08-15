@@ -93,9 +93,9 @@
             <a href="" class="text-sm text-gray-500 hover:opacity-50">View All</a>
         </div>
         <div class="grid-cols-1 md:grid-cols-3 grid gap-20">
-            <x-blog-panel></x-blog-panel>
-            <x-blog-panel></x-blog-panel>
-            <x-blog-panel></x-blog-panel>
+            @foreach ($posts as $post)
+                <x-blog-panel :post="$post" />
+            @endforeach
         </div>
     </section>
 @endsection

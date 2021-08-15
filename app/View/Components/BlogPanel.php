@@ -6,14 +6,22 @@ use Illuminate\View\Component;
 
 class BlogPanel extends Component
 {
+
+    /**
+     * post
+     *
+     * @var mixed
+     */
+    public $post;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($post)
     {
-        //
+        $this->post = $post;
     }
 
     /**

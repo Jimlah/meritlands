@@ -1,48 +1,52 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="px-10 pt-10 pb-16 bg-gray-900">
-        @foreach ($posts as $post)
-            @if ($loop->first)
-                <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2">
-                    <div class="bg-cover bg-center bg-no-repeat rounded-xl h-48 sm:h-72 md:h-full"
-                        style="background-image:url('{{ $post->image }}');">
+    @if ($posts->onFirstPage())
+        <section class="px-10  sm:px-20 pt-10 pb-16 bg-gray-900">
+            @foreach ($posts as $post)
+                @if ($loop->first)
+                    <div class="grid grid-cols-1 md:gap-16 md:grid-cols-2">
+                        <div class="bg-cover bg-center bg-no-repeat rounded-xl h-48 sm:h-72 md:h-full"
+                            style="background-image:url('{{ $post->image }}');">
 
-                    </div>
-                    <div class="text-white flex flex-col space-y-3 justify-start items-start py-10">
-                        <span class="font-bold tracking-widest text-lg text-gray-200">The Latest</span>
-                        <h2 class="text-4xl font-bold">
-                            {{ $post->title }}
-                        </h2>
-                        <p class="font-bold text-gray-500 text-xl leading-6 max-h-48 break-words overflow-y-hidden">
-                            {{ $post->content }}
-                        </p>
-                        <a href="" class="group capitalize text-sm hover:opacity-50 flex items-center space-x-2">
-                            <span>read more</span>
-                            <span class="group-hover:inline-block">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
+                        </div>
+                        <div class="text-white flex flex-col space-y-3 justify-start items-start py-10">
+                            <span class="font-bold tracking-widest text-lg text-gray-200">The Latest</span>
+                            <h2 class="text-4xl font-bold">
+                                {{ $post->title }}
+                            </h2>
+                            <p class="font-bold text-gray-500 text-xl leading-6 max-h-48 break-words overflow-y-hidden">
+                                {{ $post->content }}
+                            </p>
+                            <a href="" class="group capitalize text-sm hover:opacity-50 flex items-center space-x-2">
+                                <span>read more</span>
+                                <span class="group-hover:inline-block">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                            <span class="text-base text-gray-400">
+                                Posted in
+                                <span class="italic text-red-500">
+                                    {{ $post->category }}
+                                </span>
                             </span>
-                        </a>
-                        <span class="text-base text-gray-400">
-                            Posted in
-                            <span class="italic text-red-500">
-                                {{ $post->category }}
-                            </span>
-                        </span>
 
+                        </div>
                     </div>
-                </div>
-            @endif
-        @endforeach
-    </section>
-    <section class="grid grid-cols-1 gap-x-16 gap-y-10 px-10 py-16 md:grid-cols-2">
+                @endif
+            @endforeach
+        </section>
+    @endif
+    <section class="grid grid-cols-1 gap-x-16 gap-y-10 px-10 sm:px-20 py-16 md:grid-cols-2">
         <div class="flex flex-col space-y-10 h-full overflow-hidden">
             @foreach ($posts as $post)
-                <x-blog-panel></x-blog-panel>
+                @if (!$loop->first)
+                    <x-blog-panel :post="$post" />
+                @endif
             @endforeach
             <div class="flex justify-between">
                 @if (!$posts->onFirstPage())
@@ -78,7 +82,7 @@
                     <span class="font-semibold text-opacity-50 text-gray-900">April 13, 2018</span>
                     <h3 class="font-bold text-3xl">Minimal Twitter</h3>
                     <p
-                        class="text-base tracking-tight leading-5 text-opacity-50 text-gray-900 max-h-40 overflow-hidden break-words text-left">
+                        class="text-base tracking-tight leading-5 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur quibusdam veritatis tempora
                         eveniet ipsum adipisci, maiores deserunt nesciunt hic quis soluta rem accusamus cupiditate quasi ad
                         fuga dignissimos tempore.

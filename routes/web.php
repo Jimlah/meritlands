@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = Post::orderByDesc('created_at')->limit(3)->get();
+    return view('welcome', compact('posts'));
 })->name('home');
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/register', [AuthController::class, 'registerView'])->name('register.view');
 Route::post('/register', [AuthController::class, 'register'])->name('register.create');

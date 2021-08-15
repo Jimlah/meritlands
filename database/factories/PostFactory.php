@@ -28,7 +28,7 @@ class PostFactory extends Factory
 
         $user_id = $faker->numberBetween(1, User::count());
         $title = $faker->sentence(3);
-        $content = $faker->paragraph(3);
+        $content = $faker->paragraphs(5, true);
         $is_published = $faker->boolean();
         $category = $faker->randomElement(['News', 'Events', 'Articles', 'Others']);
         $image = $faker->imageUrl();
