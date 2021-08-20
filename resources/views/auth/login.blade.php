@@ -16,8 +16,7 @@
                     <label for="remember" class="text-gray-900 dark:text-gray-50" value="true">Remember me</label>
                 </div>
                 <div class="w-full">
-                    <button type="submit"
-                        class="border border-gray-500 hover:bg-gray-900 text-gray-900 hover:border-transparent dark:text-white hover:text-white font-bold py-2 px-4 rounded-md w-full">Login</button>
+                    <x-submit-button name="Login" />
                 </div>
             </form>
             <div class="text-sm flex justify-between w-full">
