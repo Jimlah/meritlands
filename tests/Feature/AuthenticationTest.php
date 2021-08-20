@@ -7,7 +7,7 @@ use Faker\Factory;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
-class Authentication extends TestCase
+class AuthenticationTest extends TestCase
 {
 
     protected function setUp(): void
