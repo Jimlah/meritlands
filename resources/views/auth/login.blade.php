@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('content')
-    <section class="h-full mt-10">
+    <section class="h-full mt-10 px-5 sm:px-0">
         <div class="mx-auto max-w-sm w-full flex flex-col space-y-5 p-5 items-center shadow-md dark:bg-gray-800 rounded-lg">
             <h2 class="font-extrabold text-gray-900 dark:text-gray-50 uppercase text-4xl">
                 Login
@@ -20,7 +20,7 @@
                 </div>
             </form>
             <div class="text-sm flex justify-between w-full">
-                <a href="{{ route('register.create') }}" class="text-gray-500 dark:text-gray-200 hover:text-gray-500">
+                <a href="{{ route('register.view') }}" class="text-gray-500 dark:text-gray-200 hover:text-gray-500">
                     Don't have an account?
                 </a>
                 <a href="{{ route('register.create') }}" class="text-gray-500 dark:text-gray-200 hover:text-gray-500">
