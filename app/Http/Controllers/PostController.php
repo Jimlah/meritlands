@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::where(function ($query) use ($request)  {
+        $posts = Post::withoutGlobalScope('published')->where(function ($query) use ($request) {
             $query->where('title', 'like', '%'.$request->get('q').'%')
                 ->orWhere('category', 'like', '%'.$request->get('q').'%');
         })->paginate(10);

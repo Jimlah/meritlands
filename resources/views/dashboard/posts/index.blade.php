@@ -3,7 +3,7 @@
 @section('content')
     <x-section>
         <div class="flex items-center justify-start">
-            <a href=""
+            <a href="{{ route('posts.create') }}"
                 class="focus:outline-none bg-indigo-500 hover:bg-indigo-900 text-white px-2 py-1 flex space-x-0.5 rounded items-center">
                 <span>
                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -67,6 +67,9 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div>
+            <x-pagination :paginator="$posts"></x-pagination>
         </div>
     </x-section>
 @endsection()
