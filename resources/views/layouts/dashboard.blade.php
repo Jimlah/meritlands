@@ -35,22 +35,35 @@
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                    <nav>
-                        <a href="{{ route('dashboard') }}"
-                            class="capitalize text-lg flex space-x-2 active:bg-indigo-900 hover:bg-indigo-900 p-2 rounded-md sm:text-sm items-center justify-start md:text-lg">
-                            <span>
-                                <svg class="w-6 h-6 sm:w-4 sm:h-4 md:w-6 md:h-6" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                    </path>
-                                </svg>
-                            </span>
-                            <span>Dashboard</span>
-                        </a>
+                    <nav class="flex flex-col space-y-3">
+                        <x-nav-link route="dashboard" routeName="dashboard">
+                            <svg class="w-6 h-6 sm:w-4 sm:h-4 md:w-6 md:h-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
+                            </svg>
+                        </x-nav-link>
+                        <x-nav-link route="posts.index" routeName="posts">
+                            <svg class="w-6 h-6 sm:w-4 sm:h-4 md:w-6 md:h-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </x-nav-link>
                     </nav>
                 </div>
-                <a href="">Logout</a>
+                <a href="">
+                    <x-nav-link route="logout" routeName="logout">
+                        <svg class="w-6 h-6 sm:w-4 sm:h-4 md:w-6 md:h-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                            </path>
+                        </svg>
+                    </x-nav-link>
+                </a>
             </div>
             <div class="flex flex-col w-full items-start justify-start col-span-full sm:col-span-4">
                 <div class="w-full bg-white flex px-2 py-3 items-center justify-between space-x-5">
@@ -89,8 +102,8 @@
                         <span>Profile</span>
                     </a>
                 </div>
-                <div>
-                    Body
+                <div class="p-5">
+                    @yield('content')
                 </div>
             </div>
         </div>
