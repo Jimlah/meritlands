@@ -76,7 +76,7 @@
                             </svg>
                         </button>
                         <div>
-                            <form action=""
+                            <form action="" method="get"
                                 class="flex items-center text-gray-500 border-b border-gray-500 space-x-3 py-1">
                                 <span>
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -85,7 +85,7 @@
                                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                     </svg>
                                 </span>
-                                <input type="search" class="focus:outline-none" placeholder="Search...">
+                                <input type="search" name="q" class="focus:outline-none" placeholder="Search...">
                             </form>
                         </div>
 
@@ -102,13 +102,15 @@
                         <span>Profile</span>
                     </a>
                 </div>
-                <div class="p-5">
-                    <div class="w-full">
-                        <span class="font-bold uppercase text-lg text-gray-500">
-                            {{ request()->path() }}
-                        </span>
+                <div class=" w-full relative h-full">
+                    <div class="w-full h-full overflow-y-scroll p-5 scrollbar-y absolute">
+                        <div class="w-full mb-3">
+                            <span class="font-bold uppercase text-lg text-gray-500">
+                                {{ request()->path() }}
+                            </span>
+                        </div>
+                        @yield('content')
                     </div>
-                    @yield('content')
                 </div>
             </div>
         </div>

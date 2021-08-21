@@ -14,9 +14,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all();
+        $posts = Post::where(function ($query) use ($request)  {
+            $query->where('title', 'like', '%'.$request->get('q').'%')
+                ->orWhere('category', 'like', '%'.$request->get('q').'%');
+        })->paginate(10);
 
         return view('dashboard.posts.index', compact('posts'));
     }
