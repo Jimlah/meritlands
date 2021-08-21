@@ -19,40 +19,51 @@
             <table class="w-full table-auto text-left rounded-lg overflow-hidden">
                 <thead class="bg-gray-500 text-white text-sm font-bold">
                     <tr class="">
-                        <th class="py-2 px-3 capitalize tracking-wider">Image</th>
-                        <th class="py-2 px-3 capitalize tracking-wider">Title</th>
-                        <th class="py-2 px-3 capitalize tracking-wider">Category</th>
-                        <th class="py-2 px-3 capitalize tracking-wider">Status</th>
-                        <th class="py-2 px-3 capitalize tracking-wider">Actions</th>
+                        <x-col-head>
+                            Image
+                        </x-col-head>
+                        <x-col-head>
+                            Title
+                        </x-col-head>
+                        <x-col-head>
+                            Category
+                        </x-col-head>
+                        <x-col-head>
+                            Status
+                        </x-col-head>
+                        <x-col-head>
+                            Action
+                        </x-col-head>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($posts as $post)
-                        <tr class="">
-                            <td class="py-2 px-3">
+                        <x-row>
+                            <x-col>
                                 <div class="bg-center bg-cover bg-no-repeat h-10 w-10 rounded-full"
                                     style="background-image: url('{{ $post->image }}');">
 
                                 </div>
-                            </td>
-                            <td class="py-2 px-3 whitespace-nowrap">
+                            </x-col>
+                            <x-col>
                                 <span class="overflow-ellipsis">
                                     {{ $post->title }}
                                 </span>
-                            </td>
-                            <td class="py-2 px-3">
+                            </x-col>
+                            <x-col>
                                 <span class="">{{ $post->category }}</span>
-                            </td>
-                            <td class="py-2 px-3">
+                            </x-col>
+                            <x-col>
                                 <span class="">
                                     <span
                                         class="badge badge-success">{{ $post->is_published ? 'Published' : 'Draft' }}</span>
                                 </span>
-                            </td>
-                            <td class="py-2 px-3">
-                                <a href="" class="badge badge-danger">Delete</a>
-                            </td>
-                        </tr>
+                            </x-col>
+                            <x-col>
+                                <x-action-button show="posts.show" edit="posts.edit" delete="posts.destroy"
+                                    :index="$post->id"></x-action-button>
+                            </x-col>
+                        </x-row>
                     @endforeach
                 </tbody>
             </table>
