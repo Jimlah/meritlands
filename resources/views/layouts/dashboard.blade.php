@@ -27,14 +27,14 @@
             <div class="bg-indigo-600 dark:bg-gray-700 absolute h-full w-48 sm:relative sm:w-full sm:flex px-3 py-5 text-gray-50 flex flex-col justify-between"
                 x-bind:class="!open ? 'hidden' : ''">
                 <div class="flex flex-col space-y-5 static justify-start">
-                    <button class="absolute top-0 right-0 sm:hidden mb-0" >
+                    <span class="uppercase font-bold text-xl mt-0">Meritland</span>
+                    <button class="absolute top-0 right-0 sm:hidden" x-on:click="open = false">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                    <span class="uppercase font-bold text-xl">Meritland</span>
                     <nav>
                         <a href="{{ route('dashboard') }}"
                             class="capitalize text-lg flex space-x-2 active:bg-indigo-900 hover:bg-indigo-900 p-2 rounded-md sm:text-sm items-center justify-start md:text-lg">
@@ -53,10 +53,41 @@
                 <a href="">Logout</a>
             </div>
             <div class="flex flex-col w-full items-start justify-start col-span-full sm:col-span-4">
-                <div class="w-full bg-white">
-                    <div>
-                        
+                <div class="w-full bg-white flex px-2 py-3 items-center justify-between space-x-5">
+                    <div class="flex items-center space-x-2">
+                        <button x-on:click="open=true" class="sm:hidden">
+                            <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                        <div>
+                            <form action=""
+                                class="flex items-center text-gray-500 border-b border-gray-500 space-x-3 py-1">
+                                <span>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </span>
+                                <input type="search" class="focus:outline-none" placeholder="Search...">
+                            </form>
+                        </div>
+
                     </div>
+                    <a href="" class="flex items-center justify-start space-x-1 text-gray-500 hover:text-gray-900">
+                        <span class="">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span>Profile</span>
+                    </a>
                 </div>
                 <div>
                     Body
