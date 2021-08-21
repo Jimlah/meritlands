@@ -103,6 +103,11 @@
                     </a>
                 </div>
                 <div class="p-5">
+                    <div class="w-full">
+                        <span class="font-bold uppercase text-lg text-gray-500">
+                            {{ request()->path() }}
+                        </span>
+                    </div>
                     @yield('content')
                 </div>
             </div>
