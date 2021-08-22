@@ -6,8 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\PostController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\CkeditorController;
 
 /*
 |--------------------------------------------------------------------------
