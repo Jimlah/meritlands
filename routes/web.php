@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('/posts', PostController::class);
+    Route::post('/ckeditor/image-upload', [CkeditorController::class, 'imageUpload'])->name('ckeditor.image-upload');
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -2,14 +2,14 @@
 
 @section('content')
     <x-section>
-        <form action="{{ route('posts.store') }}" method="POST" class="w-full flex flex-col justify-start space-y-5">
+        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data" class="w-full flex flex-col justify-start space-y-5">
             @csrf
             <x-input type="text" name="title" label="Title" placeholder="Enter your title" :error="$errors"></x-input>
             <div>
                 <label for="content"
                     class="text-normal font-bold text-gray-900 text-opacity-50 dark:text-gray-500">Content</label>
                 <textarea name="content" id="content" cols="30" rows="10"
-                    class="w-full focus:outline-none border px-3 py-2 rounded-md text-gray-900 bg-transparent dark:text-gray-50 hover:border-gray-900 dark:hover:border-gray-50"></textarea>
+                    class="w-full focus:outline-none border px-3 py-2 rounded-md text-gray-900 bg-transparent dark:text-gray-50 hover:border-gray-900 dark:hover:border-gray-50 ckeditor"></textarea>
             </div>
             <x-input type="file" name="image" label="Image" :error="$errors"></x-input>
 
@@ -23,5 +23,14 @@
             </div>
         </form>
     </x-section>
-
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+         CKEDITOR.replace('wysiwyg-editor', {
+        filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+    </script>
 @endsection()
