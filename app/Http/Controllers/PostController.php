@@ -9,6 +9,12 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +25,7 @@ class PostController extends Controller
         $posts = Post::withoutGlobalScope('published')->where(function ($query) use ($request) {
             $query->where('title', 'like', '%'.$request->get('q').'%')
                 ->orWhere('category', 'like', '%'.$request->get('q').'%');
-        })->paginate(10);
+        })->orderBy('id', 'desc')->paginate(10);
 
         return view('dashboard.posts.index', compact('posts'));
     }
@@ -65,8 +71,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
+        $post = Post::withOutGlobalScope('published')->findOrFail($id);
         return view('dashboard.posts.show', compact('post'));
     }
 
@@ -76,8 +83,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($post)
+    public function edit($id)
     {
+        $post = Post::withoutGlobalScope('published')->findOrFail($id);
         return view('dashboard.posts.edit', compact('post'));
     }
 
@@ -88,8 +96,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(PostRequest $request, $id)
     {
+        $post = Post::withoutGlobalScope('published')->findOrFail($id);
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category = $request->category;
@@ -111,10 +120,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+        $post = Post::withoutGlobalScope('published')->findOrFail($id);
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post has been deleted');
-    }
+
+   }
 }

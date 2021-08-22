@@ -41,7 +41,7 @@
             <p class="text-gray-500 text-center w-full whitespace-normal">
                 Are you sure you want to delete this resource?
             </p>
-            <form action="{{ route($delete, $index) }}" class="w-full flex flex-col space-y-2">
+            <form action="{{ route($delete, $index) }}" method="POST" class="w-full flex flex-col space-y-2">
                 @csrf
                 <input type="hidden" name="_method" value="DELETE">
                 <button type="submit"
