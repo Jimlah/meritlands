@@ -48,12 +48,14 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+        $imageUrl = $request->file('image')->storeOnCloudinary()->getSecurePath();
         $post = new Post();
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category = $request->category;
         $post->slug = Str::slug($request->title);
         $post->user_id = auth()->user()->id;
+        $post->image = $imageUrl;
 
         if ($request->has('publish')) {
             $post->is_published = true;
@@ -103,6 +105,7 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->category = $request->category;
         $post->slug = Str::slug($request->title);
+        $post->image = $request->file('image')->storeOnCloudinary()->getSecurePath();
 
         if ($request->has('publish')) {
             $post->is_published = true;
