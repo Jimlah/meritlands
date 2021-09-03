@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+
     Route::resource('/posts', PostController::class);
+    Route::resource('/videos', VideoController::class);
     Route::post('/ckeditor/image-upload', [CkeditorController::class, 'imageUpload'])->name('ckeditor.image-upload');
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

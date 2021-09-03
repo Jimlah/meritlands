@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ViewCount;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class BlogController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+        event(new ViewCount($post));
         return view('show', compact('post'));
     }
 }
