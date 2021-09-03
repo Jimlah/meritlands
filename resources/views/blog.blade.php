@@ -16,7 +16,7 @@
                                 {{ $post->title }}
                             </h2>
                             <p class="font-bold text-gray-500 text-xl leading-6 max-h-48 break-words overflow-y-hidden">
-                                {{ $post->content }}
+                                {!! $post->content !!}
                             </p>
                             <a href="" class="group capitalize text-sm hover:opacity-50 flex items-center space-x-2">
                                 <span>read more</span>
@@ -75,30 +75,20 @@
             </div>
         </div>
         <hr class="md:hidden ">
-        <div class="">
-            <h2>Top Views</h2>
+        <div class="___class_+?20___">
+            <h2 class=" dark:text-gray-50">Top Views</h2>
             <div class="flex flex-col items-center w-3/4 space-y-5">
-                <div class="flex flex-col items-left justify-start space-y-2 mt-5">
-                    <span class="font-semibold text-opacity-50 text-gray-900">April 13, 2018</span>
-                    <h3 class="font-bold text-3xl">Minimal Twitter</h3>
-                    <p
-                        class="text-base tracking-tight leading-5 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur quibusdam veritatis tempora
-                        eveniet ipsum adipisci, maiores deserunt nesciunt hic quis soluta rem accusamus cupiditate quasi ad
-                        fuga dignissimos tempore.
-                    </p>
-                </div>
-                <hr class="bg-gray-900 w-full">
-                <div class="flex flex-col items-left justify-start space-y-2 mt-5">
-                    <span class="font-semibold text-opacity-50 text-gray-900">April 13, 2018</span>
-                    <h3 class="font-bold text-3xl">Minimal Twitter</h3>
-                    <p
-                        class="text-base tracking-tight leading-5 text-opacity-50 text-gray-900 h-40 overflow-hidden break-words text-left">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum tenetur quibusdam veritatis tempora
-                        eveniet ipsum adipisci, maiores deserunt nesciunt hic quis soluta rem accusamus cupiditate quasi ad
-                        fuga dignissimos tempore.
-                    </p>
-                </div>
+                @foreach ($views as $view)
+                    <div class="flex flex-col items-left justify-start space-y-2 mt-5 dark:text-gray-50">
+                        <span class="font-semibold text-opacity-50 text-gray-900 dark:text-gray-50">April 13, 2018</span>
+                        <h3 class="font-bold text-3xl">{{ $view->title }}</h3>
+                        <p
+                            class="text-base tracking-tight leading-6 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left dark:text-gray-50">
+                            {!! $view->content !!}
+                        </p>
+                    </div>
+                    <hr class="bg-gray-900 w-full">
+                @endforeach
             </div>
         </div>
 

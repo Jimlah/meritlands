@@ -25,17 +25,15 @@
     <x-navbar></x-navbar>
     @yield('content')
     <section class="px-5 md:px-10 grid grid-col-1 md:grid-cols-3 gap-y-5 py-16 md:py-20 text-gray-900 bg-gray-300 ">
-        <div class="">
-            meritland
+        <div class="___class_+?2___">
+            MERITLAND
         </div>
         <div class="flex flex-col space-y-2 justify-start items-start">
             <h3 class="text-2xl uppercase font-bold text-left">Popular topics</h3>
             <div class="grid grid-cols-2 gap-x-5 gap-y-0 font-bold text-base text-gray-900">
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
-                <a href="" class="hover:text-opacity-50">News</a>
+                @foreach ($categories as $category)
+                    <a href="" class="hover:text-opacity-50">{{ $category->category }}</a>
+                @endforeach
             </div>
         </div>
         <div class="flex flex-col space-y-2 justify-start items-start">
@@ -55,7 +53,7 @@
             <div
                 class="flex flex-col md:flex-row md:items-center space-y-1 md:space-y-0 md:justify-center md:space-x-4">
                 <a href="">About</a>
-                <a href= {{ route('blog')}} >Blog</a>
+                <a href={{ route('blog') }}>Blog</a>
                 <a href="">Videos</a>
             </div>
             <a href="">Privacy Policy</a>

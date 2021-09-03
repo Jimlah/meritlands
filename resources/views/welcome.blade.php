@@ -90,7 +90,7 @@
     <section class="px-5 md:px-10 flex flex-col items-center justify-center py-16 md:py-20 space-y-5">
         <div class="flex flex-col items-center">
             <h2 class="text-2xl text-gray-400 tracking-wide">Get the latest</h2>
-            <a href="" class="text-sm text-gray-500 hover:opacity-50">View All</a>
+            <a href="{{ route('blog') }}" class="text-sm text-gray-500 hover:opacity-50">View All</a>
         </div>
         <div class="grid-cols-1 md:grid-cols-3 grid gap-20">
             @foreach ($posts as $post)

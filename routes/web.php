@@ -21,7 +21,8 @@ use App\Http\Controllers\CkeditorController;
 
 Route::get('/', function () {
     $posts = Post::orderByDesc('created_at')->limit(3)->get();
-    return view('welcome', compact('posts'));
+    $categories = Post::select('category')->distinct()->get();
+    return view('welcome', compact('posts', 'categories'));
 })->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');

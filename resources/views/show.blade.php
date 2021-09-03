@@ -21,15 +21,15 @@
                     <div class="flex flex-col space-y-3 text-gray-400">
                         <h3 class="font-bold text-lg">Share</h3>
                         <div>
-                            <a href="">twitter</a>
-                            <a href="">facebook</a>
+                            <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}">twitter</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}">facebook</a>
                         </div>
                     </div>
                     <div class="flex flex-col space-y-3 text-gray-400">
                         <h3 class="font-bold text-lg">Details</h3>
                         <div class="flex flex-col items-start justify-start">
                             <span>{{ $post->category }}</span>
-                            <span href="">0 views</span>
+                            <span href="">{{ $post->views }} views</span>
                             <span href="">0 comments</span>
                         </div>
                     </div>

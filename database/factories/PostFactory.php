@@ -42,6 +42,7 @@ class PostFactory extends Factory
             'published_at' => fn () => $is_published ? now() : null,
             'slug' => Str::slug($title),
             'category' => $category,
+            'views' => $faker->numberBetween(0, 1000),
         ];
     }
 }

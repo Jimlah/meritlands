@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('category')->nullable();
             $table->string('is_published')->default('0');
             $table->timestamp('published_at')->nullable();
+            $table->integer('views')->default('0');
             $table->timestamps();
         });
     }
