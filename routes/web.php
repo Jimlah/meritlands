@@ -32,16 +32,18 @@ Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::post('/subscribers', [SubscriberController::class, 'store'])->name('subscribers.store');
 
-Route::get('/register', [AuthController::class, 'registerView'])->name('register.view');
-Route::post('/register', [AuthController::class, 'register'])->name('register.create');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/register', [AuthController::class, 'registerView'])->name('register.view');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.create');
 
-Route::get('/login', [AuthController::class, 'loginView'])->name('login.view');
-Route::post('/login', [AuthController::class, 'login'])->name('login.check');
+    Route::get('/login', [AuthController::class, 'loginView'])->name('login.view');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.check');
+});
 
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/subscribers', [SubscriberController::class, 'index'])->name('subscribers');
+    Route::get('/subscribers', [SubscriberController::class, 'index'])->name('subscribers.index');
 
     Route::resource('/posts', PostController::class);
     Route::resource('/videos', VideoController::class);

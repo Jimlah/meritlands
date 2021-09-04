@@ -3,25 +3,25 @@
 @section('content')
     <x-section>
         <form
-            action="{{ url()->current() == route('posts.create') ? route('posts.store') : route('posts.update', $post?->id) }}"
+            action="{{ url()->current() == route('posts.create') ? route('posts.create') : route('posts.update', $post->id) }}"
             method="POST" enctype="multipart/form-data" class="w-full flex flex-col justify-start space-y-5">
             @csrf
-            @if (url()->current() !== route('posts.create'))
+            @if (url()->current() == route('posts.edit', $post->id))
                 @method('PUT')
             @endif
             <x-input type="text" name="title" label="Title" placeholder="Enter your title" :error="$errors"
-                value="{{ $post?->title ?? old('title') }}"></x-input>
+                value="{{ $post->title ?? old('title') }}"></x-input>
             <div>
                 <label for="content"
                     class="text-normal font-bold text-gray-900 text-opacity-50 dark:text-gray-500">Content</label>
                 <textarea name="content" id="content" cols="30" rows="10"
-                    class="w-full focus:outline-none border px-3 py-2 rounded-md text-gray-900 bg-transparent dark:text-gray-50 hover:border-gray-900 dark:hover:border-gray-50 ckeditor">{{ $post?->content ?? old('content') }}</textarea>
+                    class="w-full focus:outline-none border px-3 py-2 rounded-md text-gray-900 bg-transparent dark:text-gray-50 hover:border-gray-900 dark:hover:border-gray-50 ckeditor">{{ $post->content ?? old('content') }}</textarea>
             </div>
-            <x-input type="file" name="image" label="Image" :error="$errors" value="{{ $post?->image ?? old('image') }}">
+            <x-input type="file" name="image" label="Image" :error="$errors" value="{{ $post->image ?? old('image') }}">
             </x-input>
 
             <x-input type="text" name="category" label="Category" placeholder="Enter the category" :error="$errors"
-                value="{{ $post?->category ?? old('category') }}">
+                value="{{ $post->category ?? old('category') }}">
             </x-input>
             <div class="flex items-center justify-start space-x-3">
                 <button type="submit" name="save"

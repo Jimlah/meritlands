@@ -24,10 +24,10 @@
 <body class="antialiased dark:bg-gray-900 bg-gray-200">
     <div class="h-screen w-full overflow-hidden">
         <div class="w-full h-full grid grid-cols-5 relative" x-data="{open: false}">
-            <div class="bg-indigo-600 dark:bg-gray-700 absolute h-full w-48 sm:relative sm:w-full sm:flex px-3 py-5 text-gray-50 flex flex-col justify-between"
+            <div class="bg-indigo-600 dark:bg-gray-700 absolute h-full w-48 sm:relative sm:w-full sm:flex px-3 py-5 text-gray-50 flex flex-col justify-between z-50"
                 x-bind:class="!open ? 'hidden' : ''">
                 <div class="flex flex-col space-y-5 static justify-start">
-                    <span class="uppercase font-bold text-xl mt-0">Meritland</span>
+                    <a href="{{ route('home') }}" class="uppercase font-bold text-xl mt-0">Meritland</a>
                     <button class="absolute top-0 right-0 sm:hidden" x-on:click="open = false">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +51,9 @@
                                     d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
                                 </path>
                             </svg>
+                        </x-nav-link>
+                        <x-nav-link route="subscribers.index" routeName="subscribers">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         </x-nav-link>
                     </nav>
                 </div>
@@ -91,7 +94,7 @@
 
                     </div>
                     <a href="" class="flex items-center justify-start space-x-1 text-gray-500 hover:text-gray-900">
-                        <span class="">
+                        <span class="___class_+?21___">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

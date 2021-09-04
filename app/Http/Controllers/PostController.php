@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ArticleWasPublished;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use Illuminate\Console\Scheduling\Event;
 
 class PostController extends Controller
 {
@@ -37,7 +39,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.posts.create');
+        return view('dashboard.posts.create' , ['post' => new Post()]);
     }
 
     /**
@@ -60,11 +62,15 @@ class PostController extends Controller
         if ($request->has('publish')) {
             $post->is_published = true;
             $post->published_at = now();
+            event(new ArticleWasPublished($post));
         }
 
         $post->save();
+        if ($request->has('publish')) {
+            event(new ArticleWasPublished($post));
+        }
 
-        return redirect()->route('posts.index')->with('success', 'Post has been created');
+        return redirect(route('posts.index'))->with('success', 'Post has been created');
     }
 
     /**
@@ -88,7 +94,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::withoutGlobalScope('published')->findOrFail($id);
-        return view('dashboard.posts.edit', compact('post'));
+        return view('dashboard.posts.create', compact('post'));
     }
 
     /**
@@ -98,18 +104,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $post = Post::withoutGlobalScope('published')->findOrFail($id);
         $post->title = $request->title;
         $post->content = $request->content;
         $post->category = $request->category;
         $post->slug = Str::slug($request->title);
-        $post->image = $request->file('image')->storeOnCloudinary()->getSecurePath();
+        $post->image = $request->file('image')?->storeOnCloudinary()->getSecurePath()??$post->image;
 
         if ($request->has('publish')) {
             $post->is_published = true;
             $post->published_at = now();
+            Event::fire(new ArticleWasPublished($post));
         }
 
         $post->save();

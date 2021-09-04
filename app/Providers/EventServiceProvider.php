@@ -24,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ViewCount::class => [
             UpdateViewCount::class,
         ],
+        'App\Events\ArticleWasPublished' => [
+            'App\Listeners\SendNewsletter',
+        ],
     ];
 
     /**

@@ -20,48 +20,31 @@
                 <thead class="bg-gray-500 text-white text-sm font-bold">
                     <tr class="___class_+?6___">
                         <x-col-head>
-                            Image
+                            Firstname
                         </x-col-head>
                         <x-col-head>
-                            Title
+                            Email
                         </x-col-head>
                         <x-col-head>
-                            Category
-                        </x-col-head>
-                        <x-col-head>
-                            Status
-                        </x-col-head>
-                        <x-col-head>
-                            Action
+                            Created At
                         </x-col-head>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($posts as $post)
+                    @foreach ($subscribers as $subscriber)
                         <x-row>
                             <x-col>
-                                <div class="bg-center bg-cover bg-no-repeat h-10 w-10 rounded-full"
-                                    style="background-image: url('{{ $post->image }}');">
-
-                                </div>
+                                <span class="overflow-ellipsis">
+                                    {{ $subscriber->firstname }}
+                                </span>
                             </x-col>
                             <x-col>
                                 <span class="overflow-ellipsis">
-                                    {{ $post->title }}
+                                    {{ $subscriber->email }}
                                 </span>
                             </x-col>
                             <x-col>
-                                <span class="___class_+?9___">{{ $post->category }}</span>
-                            </x-col>
-                            <x-col>
-                                <span class="___class_+?10___">
-                                    <span
-                                        class="px-3 py-2 rounded-full text-white text-sm {{ $post->is_published ? 'bg-green-500' : 'bg-blue-500' }}">{{ $post->is_published ? 'Published' : 'Draft' }}</span>
-                                </span>
-                            </x-col>
-                            <x-col>
-                                <x-action-button show="posts.show" edit="posts.edit" delete="posts.destroy"
-                                    :index="$post->id"></x-action-button>
+                                <span class="___class_+?9___">{{ $subscriber->created_at->format('Y-m-d') }}</span>
                             </x-col>
                         </x-row>
                     @endforeach
@@ -69,7 +52,7 @@
             </table>
         </div>
         <div>
-            <x-pagination :paginator="$posts"></x-pagination>
+            <x-pagination :paginator="$subscribers"></x-pagination>
         </div>
     </x-section>
 @endsection()
