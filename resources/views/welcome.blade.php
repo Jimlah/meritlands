@@ -67,11 +67,23 @@
                 </p>
             </div>
             <div class="flex items-center w-full justify-center">
-                <form action="" method="POST" class="flex flex-col space-y-5 items-start w-full">
-                    <input type="text" name="name" placeholder="firstname"
-                        class="w-full rounded-full px-5 py-3 uppercase tracking-widest focus:outline-none" />
-                    <input type="email" name="email" placeholder="Email Address"
-                        class="w-full rounded-full px-5 py-3 uppercase tracking-widest focus:outline-none" />
+                <form action="{{ route('subscribers.store') }}" method="POST"
+                    class="flex flex-col space-y-5 items-start w-full">
+                    @csrf
+                    <div class="w-full">
+                        <input type="text" name="firstname" placeholder="firstname" value="{{ old('firstname') }}"
+                            class="w-full rounded-full px-5 py-3 uppercase tracking-widest focus:outline-none" />
+                        @error('firstname')
+                            <p class="text-red-500 text-xs italic mt-1 ml-2">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="w-full">
+                        <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}"
+                            class="w-full rounded-full px-5 py-3 uppercase tracking-widest focus:outline-none" />
+                        @error('email')
+                            <p class="text-red-500 text-xs italic mt-1 ml-2">{{ $message }}</p>
+                        @enderror
+                    </div>
                     <button type="submit"
                         class="bg-gray-900 hover:bg-opacity-70 text-gray-100 flex space-x-2 px-5 py-3 rounded-full">
                         <span class="w-full rounded-full uppercase tracking-widest">Join Now</span>

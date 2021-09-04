@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\VideoController;
 
 /*
@@ -29,6 +30,8 @@ Route::get('/', function () {
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
+Route::post('/subscribers', [SubscriberController::class, 'store'])->name('subscribers.store');
+
 Route::get('/register', [AuthController::class, 'registerView'])->name('register.view');
 Route::post('/register', [AuthController::class, 'register'])->name('register.create');
 
@@ -38,7 +41,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.check');
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+    Route::get('/subscribers', [SubscriberController::class, 'index'])->name('subscribers');
 
     Route::resource('/posts', PostController::class);
     Route::resource('/videos', VideoController::class);
