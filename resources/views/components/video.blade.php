@@ -1,5 +1,5 @@
 <div class="w-full flex flex-col space-y-2">
-    <a href="" class="bg-center bg-no-repeat bg-cover h-40 w-full inline-block"
+    <a href={{ route('video.show', $video->slug) }} class="bg-center bg-no-repeat bg-cover h-40 w-full inline-block"
         style="background-image: url('https://i.pcmag.com/imagery/articles/00Cx7vFIetxCuKxQeqPf8mi-23.1580943870.fit_lim.jpg')">
 
     </a>

@@ -30,6 +30,7 @@ Route::get('/', function () {
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('video/', [BlogController::class, 'videoIndex'])->name('video.index');
+Route::get('video/{slug}', [BlogController::class, 'videoShow'])->name('video.show');
 
 Route::post('/subscribers', [SubscriberController::class, 'store'])->name('subscribers.store');
 

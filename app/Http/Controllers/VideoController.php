@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
+use GuzzleHttp\Psr7\Uri;
+use Illuminate\Support\Str;
 use RicardoFiorani\OEmbed\OEmbed;
 use App\Http\Requests\VideoRequest;
-use GuzzleHttp\Psr7\Uri;
 use NunoMaduro\Collision\Adapters\Phpunit\State;
 
 class VideoController extends Controller
@@ -46,6 +47,7 @@ class VideoController extends Controller
 
         Video::create([
             'title' => $request->input('title'),
+            'slug' => Str::slug($request->input('title')),
             'description' => $request->input('description'),
             'video_url' => $request->input('video_url'),
             'thumbnail_url' => $video->getThumbnailUrl(),

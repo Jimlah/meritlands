@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Video;
+use GuzzleHttp\Psr7\Uri;
 use App\Events\ViewCount;
 use Illuminate\Http\Request;
+use RicardoFiorani\OEmbed\OEmbed;
 
 class BlogController extends Controller
 {
@@ -28,4 +30,16 @@ class BlogController extends Controller
         $videos = Video::paginate(20);
         return view('video', compact('videos'));
     }
+
+      public function videoShow($slug)
+      {
+        $video = Video::where('slug', $slug)->firstOrFail();
+        $service = new OEmbed();
+        $uri = new Uri($video->video_url);
+        $videoDisplay = $service->get($uri);
+
+        // dd($videoDisplay);
+
+        return view('videoshow', compact('video', 'videoDisplay'));
+      }
 }
