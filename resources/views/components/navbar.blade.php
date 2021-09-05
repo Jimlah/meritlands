@@ -1,6 +1,7 @@
 <nav class="px-5 flex items-center justify-between w-full static md:px-10 text-gray-700 dark:text-gray-200"
     x-data="dropdown">
-    <a href="{{ route('home') }}" class="font-bold text-4xl py-6 "> MERITLAND </a>
+    <a href="{{ route('home') }}" class="font-bold text-4xl py-6" style="text-decoration: inherit; color: inherit;">
+        MERITLAND </a>
     <div class="flex items-center space-x-2ww" x-data="darkmode">
         <button x-on:click="change">
             <svg class="w-8 h-8" :class="{'hidden': dark == false}" fill="none" stroke="currentColor"
@@ -29,8 +30,12 @@
     </div>
     <div class="absolute flex top-0 left-0 h-full mr-0 mt-24 md:flex space-y-7 flex-col md:flex-row md:space-y-0 md:space-x-3 px-5 text-2xl font-bold bg-gray-900 text-gray-100 py-14 w-full md:relative md:w-min md:bg-transparent md:text-gray-900 md:dark:text-gray-200 md:py-0 md:min-h-0 md:mt-0"
         :class="{'hidden': open == true}">
-        <a href="" class="md:hover:text-opacity-50 md:dark:hover:text-opacity-50">About</a>
-        <a href="{{ route('blog') }}" class="md:hover:text-opacity-50 md:dark:hover:text-opacity-50">Blog</a>
+        <a href="" class="md:hover:text-opacity-50 md:dark:hover:text-opacity-50"
+            style="text-decoration: inherit; color: inherit;">About</a>
+        <a href="{{ route('blog') }}" class="md:hover:text-opacity-50 md:dark:hover:text-opacity-50"
+            style="text-decoration: inherit; color: inherit;">Blog</a>
+        <a href="{{ route('video.index') }}" class="md:hover:text-opacity-50 md:dark:hover:text-opacity-50"
+            style="text-decoration: inherit; color: inherit;">Video</a>
         <span class="flex space-x-2 items-center md:hidden">
             <a href="" class="md:hover:text-opacity-50 md:dark:hover:text-opacity-50">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 16 16">

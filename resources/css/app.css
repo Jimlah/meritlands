@@ -27,10 +27,3 @@
         border-radius: 5px;
     }
 }
-
-@layer base {
-    a {
-        color: inherit !important;
-        text-decoration: inherit !important;
-    }
-}

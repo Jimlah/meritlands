@@ -22,6 +22,16 @@ class Post extends Model
         'is_published'
     ];
 
+        /**
+        * The attributes that should be cast to native types.
+        *
+        * @var array
+        */
+        protected $casts = [
+            'email_verified_at' => 'datetime',
+            'published_at' => 'datetime',
+        ];
+
     protected static function booted()
     {
         static::addGlobalScope('published', function (Builder $builder) {
