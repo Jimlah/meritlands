@@ -60,8 +60,8 @@
                                 </span>
                             </x-col>
                             <x-col>
-                                <x-action-button show="posts.show" edit="posts.edit" delete="posts.destroy"
-                                    :index="$post->id"></x-action-button>
+                                <x-action-button show="blog.show" edit="posts.edit" delete="posts.destroy"
+                                    :index="$post->id" :slug="$post->slug"></x-action-button>
                             </x-col>
                         </x-row>
                     @endforeach

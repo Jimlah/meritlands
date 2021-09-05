@@ -10,17 +10,19 @@ class ActionButton extends Component
     public $edit;
     public $delete;
     public $index;
+    public $slug;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($show, $edit, $delete, $index)
+    public function __construct($show, $edit, $delete, $index, $slug)
     {
         $this->show = $show;
         $this->edit = $edit;
         $this->delete = $delete;
         $this->index = $index;
+        $this->slug = $slug;
 
     }
 

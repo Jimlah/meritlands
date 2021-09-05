@@ -53,8 +53,8 @@
                                 </span>
                             </x-col>
                             <x-col>
-                                <x-action-button show="videos.show" edit="videos.edit" delete="videos.destroy"
-                                    :index="$video->id"></x-action-button>
+                                <x-action-button show="video.show" edit="videos.edit" delete="videos.destroy"
+                                    :index="$video->id" :slug="$video->slug"></x-action-button>
                             </x-col>
                         </x-row>
                     @endforeach
