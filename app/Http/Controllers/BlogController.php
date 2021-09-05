@@ -27,19 +27,23 @@ class BlogController extends Controller
 
     public function videoIndex()
     {
-        $videos = Video::paginate(20);
+        $videos = Video::orderBy('created_at', 'desc')->paginate(20);
         return view('video', compact('videos'));
     }
 
       public function videoShow($slug)
       {
         $video = Video::where('slug', $slug)->firstOrFail();
+        $video->views = $video->views + 1;
+        $video->save();
         $service = new OEmbed();
         $uri = new Uri($video->video_url);
         $videoDisplay = $service->get($uri);
 
+        $topVideos = Video::where('id', '!=', $video->id)->orderBy('views', 'desc')->limit(5)->get();
+
         // dd($videoDisplay);
 
-        return view('videoshow', compact('video', 'videoDisplay'));
+        return view('videoshow', compact('video', 'videoDisplay', 'topVideos'));
       }
 }

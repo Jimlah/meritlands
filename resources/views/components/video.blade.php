@@ -8,7 +8,7 @@
             {{ $video->title }}
         </span>
         <div class="flex space-x-2 items-center justify-center text-sm text-gray-500 font-semibold">
-            <span class="capitalize">{{ $video->views ?? 0 }} views</span>
+            <span class="capitalize">{{ $video->views }} views</span>
             <span class="capitalize">{{ $video->created_at->diffForHumans() }}</span>
         </div>
     </div>

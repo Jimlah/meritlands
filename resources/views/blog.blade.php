@@ -51,7 +51,7 @@
             <div class="flex justify-between">
                 @if (!$posts->onFirstPage())
                     <a href={{ $posts->previousPageUrl() }}
-                        class="flex items-center px-3 py-2 rounded-full space-x-2 bg-gray-900 hover:bg-transparent border-2 hover:border-gray-900 text-gray-50 hover:text-gray-900 font-bold">
+                        class="flex items-center px-3 py-2 rounded-full space-x-2 bg-gray-900 hover:bg-transparent border-2 hover:border-gray-900 text-gray-50 hover:text-gray-900 font-bold dark:hover:bg-gray-50">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -62,7 +62,7 @@
                 @endif
                 @if ($posts->hasMorePages())
                     <a href={{ $posts->nextPageUrl() }}
-                        class="flex items-center px-3 py-2 rounded-full space-x-2 bg-gray-900 hover:bg-transparent border-2 hover:border-gray-900 text-gray-50 hover:text-gray-900 font-bold">
+                        class="flex items-center px-3 py-2 rounded-full space-x-2 bg-gray-900 hover:bg-transparent border-2 hover:border-gray-900 text-gray-50 hover:text-gray-900 font-bold dark:hover:bg-gray-50">
                         <span>Next</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +83,7 @@
                         <span class="font-semibold text-opacity-50 text-gray-900 dark:text-gray-50">April 13, 2018</span>
                         <h3 class="font-bold text-3xl">{{ $view->title }}</h3>
                         <p
-                            class="text-base tracking-tight leading-6 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left dark:text-gray-50">
+                            class="text-base tracking-tight leading-6 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left dark:text-gray-50 ">
                             {!! $view->content !!}
                         </p>
                         <span class="font-semibold text-opacity-50 text-gray-900 dark:text-gray-50">{{ $view->views }}
