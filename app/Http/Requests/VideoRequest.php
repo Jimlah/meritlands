@@ -27,7 +27,7 @@ class VideoRequest extends FormRequest
             'title' => 'required|max:255',
             'description' => 'required',
             'video_url' => 'required|url',
-            'thumbnail_url' => 'required|url',
+            // 'thumbnail_url' => 'required|url',
         ];
     }
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\VideoRequest;
 use App\Models\Video;
+use RicardoFiorani\OEmbed\OEmbed;
+use App\Http\Requests\VideoRequest;
+use GuzzleHttp\Psr7\Uri;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 
 class VideoController extends Controller
 {
@@ -14,7 +17,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Video::all();
+        $videos = Video::paginate(10);
         return view('dashboard.videos.index', compact('videos'));
     }
 
@@ -25,7 +28,8 @@ class VideoController extends Controller
      */
     public function create()
     {
-        return view('dashboard.videos.create');
+        $video = new Video();
+        return view('dashboard.videos.create', compact('video'));
     }
 
     /**
@@ -36,7 +40,17 @@ class VideoController extends Controller
      */
     public function store(VideoRequest $request)
     {
-        Video::create($request->all());
+        $service = new OEmbed();
+        $uri = new Uri($request->input('video_url'));
+        $video = $service->get($uri);
+
+        Video::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'video_url' => $request->input('video_url'),
+            'thumbnail_url' => $video->getThumbnailUrl(),
+        ]);
+
         return redirect()->route('videos.index');
     }
 
@@ -57,9 +71,9 @@ class VideoController extends Controller
      * @param  \App\Models\Video  $Video
      * @return \Illuminate\Http\Response
      */
-    public function edit(Video $Video)
+    public function edit(Video $video)
     {
-        return view('dashboard.videos.edit', compact('Video'));
+        return view('dashboard.videos.create', compact('video'));
     }
 
     /**

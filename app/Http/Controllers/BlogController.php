@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\ViewCount;
 use App\Models\Post;
+use App\Models\Video;
+use App\Events\ViewCount;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -20,5 +21,11 @@ class BlogController extends Controller
         $post = Post::where('slug', $slug)->firstOrFail();
         event(new ViewCount($post));
         return view('show', compact('post'));
+    }
+
+    public function videoIndex()
+    {
+        $videos = Video::paginate(20);
+        return view('video', compact('videos'));
     }
 }
