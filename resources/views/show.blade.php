@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <section>
         <div class="bg-gray-900 px-10 h-[150px] md:h-[200px] py-20">
         </div>
@@ -30,7 +32,7 @@
                         <div class="flex flex-col items-start justify-start">
                             <span>{{ $post->category }}</span>
                             <span href="">{{ $post->views }} views</span>
-                            <span href="">0 comments</span>
+                            <span href="">{{ $post->comments->count() }} comments</span>
                         </div>
                     </div>
                 </div>
@@ -38,5 +40,10 @@
             </div>
 
         </div>
+    </section>
+    <section class="px-5 sm:px-10">
+        @comments([
+        'model' => $post,
+        ])
     </section>
 @endsection

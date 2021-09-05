@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravelista\Comments\Commentable;
 
 class Post extends Model
 {
     use HasFactory;
+    use Commentable;
 
     protected $fillable = [
         'image',
