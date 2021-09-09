@@ -4,14 +4,15 @@
     <header class="grid grid-cols-1 gap-5 md:grid-cols-2 text-gray-700 dark:text-gray-200">
         <div class="px-5 pt-10 flex items-center justify-start md:px-10">
             <div class="text-left flex flex-col items-start space-y-5">
-                <h1 class="font-bold capitalize text-2xl leading-7 tracking-wide">dolor repellat sit temporibus odio ad
-                    necessitatibus aperiam accusantium quisquam optio</h1>
-                <p class="text-xl text-gray-500 text-opacity-50 dark:text-opacity-75">Lorem ipsum dolor sit amet
-                    consectetur adipisicing
-                    elit. Nihil, reiciendis quibusdam eos possimus perferendis aspernatur tempore nostrum laudantium
-                    obcaecati?</p>
-                <button
-                    class="bg-gray-900 dark:bg-gray-700 hover:bg-opacity-50 text-gray-100 px-5 font-bold text-2xl py-2 rounded-full capitalize">subscribe</button>
+                <h1 class="font-bold capitalize text-2xl leading-7 tracking-wide">
+                    News from around the Globe to you.
+                </h1>
+                <p class="text-xl text-gray-500 text-opacity-50 dark:text-opacity-75">
+                    We bring the best, latest and most interesting news from around the globe to you. We are here to help
+                    you stay up to date with the latest news and trends.
+                </p>
+                <a href="#subscribe"
+                    class="bg-gray-900 dark:bg-gray-700 hover:bg-opacity-50 text-gray-100 px-5 font-bold text-2xl py-2 rounded-full capitalize">subscribe</a>
             </div>
         </div>
 
@@ -25,9 +26,8 @@
     <section class="px-5 py-16 grid-cols-1 gap-5 grid md:px-16 md:py-20 md:justify-items-center">
         <div class="flex flex-col justify-center items-left space-y-4 md:items-center">
             <h2 class="tracking-widest text-sm uppercase text-gray-400">My Newsletter</h2>
-            <p class="text-3xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
-                Lorem ipsum
-                dolor sit, amet consectetur adipisicing elit. Unde hic consequuntur, sapiente molestiae perspiciatiss
+            <p class="text-4xl dark:text-gray-200 font-semibold leading-7 tracking-wide text-left md:w-1/2 md:text-center">
+                Intense and interesting news from around the globe.
             </p>
         </div>
         <div class="flex flex-col justify-center items-left space-y-4 md:flex-row md:w-1/2 md:space-x-3 md:items-center">
@@ -35,18 +35,19 @@
                 style="background-image: url('https://images.unsplash.com/photo-1578489758854-f134a358f08b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBlcnNvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80')">
             </div>
             <article class="text-gray-700 leading-5 text-lg tracking-wider max-w-md">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, vitae! Quis ullam quas odit vel
-                    facilis dolor quam ex ducimus expedita, quae sunt obcaecati voluptatibus, incidunt atque voluptates
-                    corporis labore!</p>
+                <p>
+                    I am a singer and at the same time a prolific writer who writes with the intention of seeing readers who
+                    could read my contents gain from it .</p>
                 <p class="mt-3">
-                    <span class="font-bold text-xl">Tema Gray</span><br />
-                    <span class="text-xs">Leading Developer</span>
+                    <span class="font-bold text-xl">Temituro Abimbola Merit</span><br />
+                    <span class="text-xs">Owner</span>
                 </p>
             </article>
         </div>
     </section>
     <section class="md:px-10 md:py-20 flex items-center justify-center">
         <div
+            id="subscribe"
             class="bg-gray-300  bg-opacity-75 grid grid-cols-1 md:grid-cols-2 px-5 py-10 rounded-lg gap-5 max-w-3xl w-full place-item-center">
             <div class="flex flex-col items-start space-y-4">
                 <span>
@@ -57,13 +58,11 @@
                         </path>
                     </svg>
                 </span>
-                <p class="font-bold leading-6 tracking-wide text-2xl">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo recusandae ducimus, incidunt illum
-                    veniam quam aliquam.
+                <p class="font-bold leading-6 tracking-wide text-2xl capitalize">
+                    subscribe to our newsletter
                 </p>
                 <p class="leading-6 tracking-wide text-gray-500 text-sxl">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo recusandae ducimus, incidunt illum
-                    veniam quam aliquam.
+                    Subscribe to our newsletter to get the latest news and updates on your favorite topics.
                 </p>
             </div>
             <div class="flex items-center w-full justify-center">

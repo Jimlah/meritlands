@@ -25,14 +25,43 @@
     <x-navbar></x-navbar>
     @yield('content')
     <section class="px-5 md:px-10 grid grid-col-1 md:grid-cols-3 gap-y-5 py-16 md:py-20 text-gray-900 bg-gray-300 ">
-        <div class="font-bold text-3xl">
-            MERITLAND
+        <div class="font-bold text-3xl flex flex-col justify-start items-start space-y-5">
+            <h2 class="font-bold">MERITLAND</h2>
+            <div class="flex flex-col justify-start items-start text-sm space-y-2">
+                <a href="tel:+2348138403802" class="flex items-center justify-start space-x-2 hover:text-gray-500">
+                    <span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                            </path>
+                        </svg>
+                    </span>
+                    <span>
+                        +2348138403802
+                    </span>
+                </a>
+                <a href="mailto:temituromerit@gmail.com"
+                    class="flex items-center justify-start space-x-2 hover:text-gray-500">
+                    <span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </span>
+                    <span>
+                        temituromerit@gmail.com
+                    </span>
+                </a>
+            </div>
         </div>
         <div class="flex flex-col space-y-2 justify-start items-start">
             <h3 class="text-2xl uppercase font-bold text-left">Popular topics</h3>
             <div class="grid grid-cols-2 gap-x-5 gap-y-0 font-bold text-base text-gray-900">
                 @foreach ($categories as $category)
-                    <a href="" class="hover:text-opacity-50"
+                    <a href="" class="hover:text-gray-500"
                         style="text-decoration: inherit; color: inherit;">{{ $category->category }}</a>
                 @endforeach
             </div>
@@ -40,10 +69,9 @@
         <div class="flex flex-col space-y-2 justify-start items-start">
             <h3 class="text-2xl uppercase font-bold text-left">Join My Newsletter</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias voluptatibus dolore quia eos consequatur
-                beatae maiores excepturi. Officiis eligendi praesentium
+                Do you want to receive our latest news and updates?
             </p>
-            <a href=""
+            <a href="#subscribe"
                 class="bg-gray-900 hover:bg-opacity-70 text-gray-100 flex space-x-2 px-5 py-3 rounded-full dark:text-gray-50"
                 style="text-decoration: inherit;">
                 Sign
