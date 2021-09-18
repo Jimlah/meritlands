@@ -25,11 +25,11 @@ class UserFactory extends Factory
     {
         $faker = FakerFactory::create();
         return [
-            'firstname' => $faker->firstName(),
-            'lastname' => $faker->lastName(),
-            'email' => $faker->unique()->safeEmail(),
+            'firstname' => "Merit",
+            'lastname' => "Temituro",
+            'email' => "temituromerit@gmail.com",
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => bcrypt('P@$$W0RD'), // password
             'remember_token' => Str::random(10),
         ];
     }
