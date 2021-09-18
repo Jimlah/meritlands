@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('description',  $post->title)
+@section('image', $post->image)
+
 @section('content')
     @if (url()->current() == route('blog.show', $post->slug))
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"

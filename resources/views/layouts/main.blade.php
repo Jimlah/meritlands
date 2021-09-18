@@ -4,6 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@yield('title', 'Meritland')" />
+    <meta property="og:description" content="@yield('description', 'News from around the Globe to you.')" />
+    <meta property="og:image"
+        content="@yield('image', 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c7175f9e-9418-4ffa-92ca-589cc9d8c73a/d7jej8q-fc31a869-9d33-4a8b-9b34-421ede8ded09.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M3MTc1ZjllLTk0MTgtNGZmYS05MmNhLTU4OWNjOWQ4YzczYVwvZDdqZWo4cS1mYzMxYTg2OS05ZDMzLTRhOGItOWIzNC00MjFlZGU4ZGVkMDkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.N2Vft3ZtEKbQpdtiEuSQbx_HFn1DWM490Y_qP39q32M')" />
+    <meta property="og:url" content="@yield('url', url()->current())" />
+    <meta property="og:site_name" content="{{ env('APP_NAME') }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="keywords" content="@yield('meta_keywords', 'blog, news')" />
 
     <title>{{ env('APP_NAME') }}</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
