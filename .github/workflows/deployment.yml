@@ -9,8 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: install node dependencies
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           node-version: 18.9.0
         - run: npm CI
@@ -20,6 +19,7 @@ jobs:
         with:
           composer-version: "~2.0"
         - run: php composer.phar install
+        - run: cp .env.example .env
       - name: deploy to CPanel via ftp
         uses: kevinpainchaud/simple-ftp-deploy-action@v1.2.1
         with:
