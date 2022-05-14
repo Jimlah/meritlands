@@ -11,9 +11,13 @@ use RicardoFiorani\OEmbed\OEmbed;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        $posts = Post::query()
+            ->when($request->get('filter'), function ($query) use ($request) {
+                $query->where('category', $request->get('filter'));
+            })
+        ->orderBy('created_at', 'desc')->paginate(5);
         $views = Post::orderBy('views', 'desc')->limit(5)->get();
         return view('blog', compact('posts', 'views'));
     }

@@ -24,7 +24,7 @@
 <body class="antialiased dark:bg-gray-900">
     <x-navbar></x-navbar>
     @yield('content')
-    </footer>
+    <footer/>
 </body>
 
 </html>

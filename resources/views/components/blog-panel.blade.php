@@ -6,7 +6,8 @@
     <div class="w-full flex flex-col items-start space-y-3 max-h-48  overflow-y-hidden text-gray-900">
         <h3 class="font-bold text-3xl tracking-wider break-words dark:text-gray-200">{{ $post->title }}</h3>
         <p class="text-lg tracking-wide leading-5 text-justify break-words dark:text-gray-200 text-opacity-75">
-            {!! $post->content !!}
+{{--            {!! $post->content !!}--}}
+            Tag: <span class="text-sm text-red-500">{{ $post->category }}</span>
         </p>
     </div>
     <a href={{ route('blog.show', ['slug' => $post->slug]) }}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -21,11 +22,7 @@ use App\Http\Controllers\VideoController;
 |
 */
 
-Route::get('/', function () {
-    $posts = Post::orderByDesc('created_at')->limit(3)->get();
-    $categories = Post::select('category')->distinct()->get();
-    return view('welcome', compact('posts', 'categories'));
-})->name('home');
+Route::get('/', IndexController::class)->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog.show');

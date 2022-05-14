@@ -15,9 +15,6 @@
                             <h2 class="text-4xl font-bold">
                                 {{ $post->title }}
                             </h2>
-                            <p class="font-bold text-gray-500 text-xl leading-6 max-h-48 break-words overflow-y-hidden">
-                                {!! $post->content !!}
-                            </p>
                             <a href="" class="group capitalize text-sm hover:opacity-50 flex items-center space-x-2">
                                 <span>read more</span>
                                 <span class="group-hover:inline-block">
@@ -50,7 +47,7 @@
             @endforeach
             <div class="flex justify-between">
                 @if (!$posts->onFirstPage())
-                    <a href={{ $posts->previousPageUrl() }}
+                    <a href={{ $posts->withQueryString()->previousPageUrl() }}
                         class="flex items-center px-3 py-2 rounded-full space-x-2 bg-gray-900 hover:bg-transparent border-2 hover:border-gray-900 text-gray-50 hover:text-gray-900 font-bold dark:hover:bg-gray-50">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +58,7 @@
                     </a>
                 @endif
                 @if ($posts->hasMorePages())
-                    <a href={{ $posts->nextPageUrl() }}
+                    <a href={{ $posts->withQueryString()->nextPageUrl() }}
                         class="flex items-center px-3 py-2 rounded-full space-x-2 bg-gray-900 hover:bg-transparent border-2 hover:border-gray-900 text-gray-50 hover:text-gray-900 font-bold dark:hover:bg-gray-50">
                         <span>Next</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -82,10 +79,10 @@
                     <div class="flex flex-col items-left justify-start space-y-2 mt-5 dark:text-gray-50">
                         <span class="font-semibold text-opacity-50 text-gray-900 dark:text-gray-50">April 13, 2018</span>
                         <h3 class="font-bold text-3xl">{{ $view->title }}</h3>
-                        <p
-                            class="text-base tracking-tight leading-6 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left dark:text-gray-50 ">
-                            {!! $view->content !!}
-                        </p>
+{{--                        <p--}}
+{{--                            class="text-base tracking-tight leading-6 text-opacity-50 text-gray-900 max-h-32 overflow-hidden break-words text-left dark:text-gray-50 ">--}}
+{{--                            {!! $view->content !!}--}}
+{{--                        </p>--}}
                         <span class="font-semibold text-opacity-50 text-gray-900 dark:text-gray-50">{{ $view->views }}
                             views</span>
                         <a href="{{ route('blog.show', [$view->slug]) }}"

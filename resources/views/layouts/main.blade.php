@@ -72,7 +72,7 @@
             <h3 class="text-2xl uppercase font-bold text-left">Popular topics</h3>
             <div class="grid grid-cols-2 gap-x-5 gap-y-0 font-bold text-base text-gray-900">
                 @foreach ($categories as $category)
-                    <a href="" class="hover:text-gray-500"
+                    <a href="{{ route('blog', ['filter' => $category->category]) }}" class="hover:text-gray-500"
                         style="text-decoration: inherit; color: inherit;">{{ $category->category }}</a>
                 @endforeach
             </div>
